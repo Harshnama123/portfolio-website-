@@ -4,59 +4,29 @@ import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
-  {
+const projectsData = [  {
     id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
+    title: "Advanced Attendance System",
+    description: "Real-time attendance management system with facial recognition, featuring dashboard analytics, class management, and automated attendance tracking. Built with Python, Flask, and facial recognition technology.",
     image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
+    tag: ["All", "Web", "ML"],
+    gitUrl: "https://github.com/Harshnama123",
     previewUrl: "/",
-  },
-  {
+  },  {
     id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
+    title: "Gesture Volume Control",
+    description: "Interactive system that controls system volume through hand gestures. Built with OpenCV for hand tracking and features real-time volume adjustment visualization with a percentage indicator.",
     image: "/images/projects/2.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
+    tag: ["All", "ML"],
+    gitUrl: "https://github.com/Harshnama123",
     previewUrl: "/",
-  },
-  {
+  },  {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
+    title: "Portfolio Website",
+    description: "Modern portfolio website built with Next.js, React, and Tailwind CSS. Features responsive design, animations, and contact form integration.",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
-    image: "/images/projects/5.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
-  },
-  {
-    id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/images/projects/6.png",
-    tag: ["All", "Web"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/Harshnama123",
     previewUrl: "/",
   },
 ];
@@ -73,10 +43,21 @@ const ProjectsSection = () => {
   const filteredProjects = projectsData.filter((project) =>
     project.tag.includes(tag)
   );
-
   const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
+    initial: { 
+      y: 50, 
+      opacity: 0,
+      scale: 0.9
+    },
+    animate: { 
+      y: 0, 
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
   };
 
   return (
@@ -94,11 +75,10 @@ const ProjectsSection = () => {
           onClick={handleTagChange}
           name="Web"
           isSelected={tag === "Web"}
-        />
-        <ProjectTag
+        />        <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="ML"
+          isSelected={tag === "ML"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
